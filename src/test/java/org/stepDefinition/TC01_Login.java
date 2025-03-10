@@ -1,27 +1,14 @@
 package org.stepDefinition;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.Pages.P01_Login;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
 
 public class TC01_Login {
     P01_Login Login = new P01_Login();
-//    public static WebDriver driver;
-//
-//    @Before
-//    public static void openBrowser() {
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.navigate().to("https://opensource-demo.orangehrmlive.com/");
-//    }
+
 
     @Given("enter username and password")
     public void enter_username_and_password() {
@@ -34,10 +21,19 @@ public class TC01_Login {
         Login.loginButton().click();
 
     }
-//    @After
-//    public static void quitBrowser() throws InterruptedException {
-//        Thread.sleep(3000);
-//        driver.quit();
-//
-//    }
+
+    @Given("press on Admin tab")
+    public void press_on_admin_tab() {
+        Login.adminButton().click();
+    }
+    @Then("get number of records")
+    public void get_number_of_records() {
+        System.out.println(Login.recordFound().getText());
+    }
+
+    @Then("Click on add button")
+    public void click_on_add_button() {
+        Login.addButton().click();
+    }
+
 }

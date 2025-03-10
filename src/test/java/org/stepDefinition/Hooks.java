@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
     public static WebDriver driver;
-
     @Before
     public static void openBrowser() {
         driver = new ChromeDriver();
@@ -21,7 +20,7 @@ public class Hooks {
     @After
     public static void quitBrowser() throws InterruptedException {
         Thread.sleep(3000);
-      //  driver.quit();
+        driver.quit();
 
     }
 }
